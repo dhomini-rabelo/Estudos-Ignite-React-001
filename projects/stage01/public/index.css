@@ -10,6 +10,7 @@
   --gray-800: #202024;
   --gray-900: #121214;
   --green: #00875f;
+  --green-light: #00b373;
 }
 
 
@@ -26,4 +27,14 @@ html, body {
   min-height: 100%;
   color: var(--gray-300);
   --webkit-font-smoothing: antialiased;
+}
+
+.main-content {
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
 }
