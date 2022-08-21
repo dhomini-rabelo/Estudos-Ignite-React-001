@@ -1,4 +1,4 @@
-header {
+.header {
     background-color: var(--gray-800);
     display: flex;
     justify-content: center;
@@ -7,12 +7,12 @@ header {
 }
 
 
-header img {
+.header img {
     width: 64.08px;
     height: 60.76px;
 }
 
-header h1 {
+.header h1 {
     font-size: 25.5853px;
     line-height: 160%;
     font-weight: 700;
