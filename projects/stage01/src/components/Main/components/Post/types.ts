@@ -1,16 +1,14 @@
+import { avatarType } from "../../../utils/Avatar/types";
+
 export interface postContentType {
     tag: string,
-    text?: string,
+    text: string,
 }
 
 
 export interface postType {
     id: number,
-    author: {
-        avatarUrl: string,
-        name: string,
-        role: string,
-    },
+    author: avatarType,        
     content: postContentType[],
     publishedAt: Date,
 }
