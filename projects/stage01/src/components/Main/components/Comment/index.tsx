@@ -20,7 +20,7 @@ export function Comment() {
                             <Trash size={20} />
                         </button>
                     </header>
-                    <p>Muito bom Devon, parabéns!! 👏👏</p>
+                    <p>Muito bom Michael, parabéns!! 👏👏</p>
                 </div>
 
                 <footer className="commentLike">

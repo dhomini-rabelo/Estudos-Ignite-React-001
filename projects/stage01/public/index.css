@@ -43,3 +43,19 @@ html, body {
   gap: 2rem;
   align-items: flex-start;
 }
+
+@media(max-width: 768px) {
+
+  html {
+    font-size: 87.5%;
+  }
+
+  .post {
+    padding: 0.6rem !important;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+}

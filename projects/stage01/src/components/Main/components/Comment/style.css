@@ -47,6 +47,7 @@
     cursor: pointer;
     line-height: 0;
     border-radius: 2px;
+    border: none;
 }
 
 .commentBoxContent header button:hover {

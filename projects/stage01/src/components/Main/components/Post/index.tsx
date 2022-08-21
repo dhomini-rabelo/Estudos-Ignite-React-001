@@ -8,9 +8,9 @@ export function Post() {
         <article className="post">
             <header>
                 <div className="author">
-                    <Avatar src="https://images.unsplash.com/profile-1453904936751-28af93873ed7?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff" />
+                    <Avatar src="https://images.unsplash.com/profile-1546504431541-6cc83b84050d?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff" />
                     <div className="avatarInfo">
-                        <strong>Leslie Alexander</strong>
+                        <strong>Michael Baccin</strong>
                         <span>Web Developer</span>
                     </div>
                 </div>
