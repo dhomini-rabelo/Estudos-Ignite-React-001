@@ -13,6 +13,10 @@
   --green-light: #00b373;
 }
 
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--green);
+}
 
 * {
   font-family: 'Roboto', sans-serif;
