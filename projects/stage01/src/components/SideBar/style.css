@@ -10,14 +10,14 @@ aside > img {
     object-fit: cover;
 }
 
-.profile {
+.profile-y {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: calc(0px - 1.5rem - 6px);
 }
 
-.profile img {
+.profile-y img {
     box-sizing: initial;
     width: 3rem;
     height: 3rem;
@@ -26,13 +26,13 @@ aside > img {
     outline: 2px solid var(--green);
 }
 
-.profile strong {
+.profile-y strong {
     margin-top: 1rem;
     color: var(--gray-100);
     line-height: 1.6;
 }
 
-.profile span {
+.profile-y span {
     font-size: 0.875rem;
     color: var(--gray-400);
 }
