@@ -1,6 +1,6 @@
 import { Header } from "./components/Header"
 import { SideBar } from './components/SideBar/index';
-import { Main } from './components/Main/index';
+import { Main } from './components/Main';
 
 function App() {
 

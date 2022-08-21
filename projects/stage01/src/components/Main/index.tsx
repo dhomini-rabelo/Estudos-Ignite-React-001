@@ -1,10 +1,14 @@
+import { Post } from './components/Post'
 import './style.css'
 
 
 export function Main() {
     return (
         <main>
-            Main
+            <Post />
+            <Post />
+            <Post />
+            <Post />
         </main>
     )
 }
