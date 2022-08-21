@@ -6,7 +6,7 @@ import { posts } from './components/Post/data';
 export function Main() {
     return (
         <main>
-            {posts.map((post) => <Post post={post} />)}
+            {posts.map((post, index) => <Post post={post} key={index} />)}
         </main>
     )
 }

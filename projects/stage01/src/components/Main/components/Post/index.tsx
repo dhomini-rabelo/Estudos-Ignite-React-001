@@ -5,10 +5,20 @@ import { postContentType, postType } from './types';
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Markup } from 'interweave';
+import { FormEvent, useState } from 'react';
 
 
 
 export function Post({post}: {post: postType}) {
+    let [comments, setComments] = useState<string[]>(['test'])
+
+
+    function handleNewComment(e: FormEvent) {
+        e.preventDefault()
+        setComments(prev => [...prev, 'new comment'])
+    }
+    
+    
     return (
         <article className="post">
             <header>
@@ -26,21 +36,19 @@ export function Post({post}: {post: postType}) {
             </header>
 
             <div className="post-content">
-                {post.content.map(({tag, text}: postContentType) => {
-                    return text ? <Markup content={`<${tag}>${text}</${tag}>`} /> : <Markup content={`<${tag}>`} />
+                {post.content.map(({tag, text}: postContentType, index) => {
+                    return <Markup content={`<${tag}>${text}</${tag}>`} key={index} />
                 })}
             </div>
 
-            <form className="commentForm">
+            <form className="commentForm" onSubmit={handleNewComment}>
                 <strong>Deixe seu feedback</strong>
                 <textarea placeholder="Deixe um comentário" /> 
                 <footer className="submitComment"><button type="submit">Publicar</button></footer>
             </form>
 
             <div className="commentList">
-                <Comment />
-                <Comment />
-                <Comment />
+                {comments.map((comment, index) => <Comment key={index} />)}
             </div>
         </article>
     )
