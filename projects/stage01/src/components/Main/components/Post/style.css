@@ -107,6 +107,8 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.1s;
+    display: block;
+    margin-left: auto;
 }
 
 .commentForm button:hover {

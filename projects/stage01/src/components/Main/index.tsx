@@ -1,14 +1,12 @@
 import { Post } from './components/Post'
 import './style.css'
+import { posts } from './components/Post/data';
 
 
 export function Main() {
     return (
         <main>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            {posts.map((post) => <Post post={post} />)}
         </main>
     )
 }
