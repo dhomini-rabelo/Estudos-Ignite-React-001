@@ -5,17 +5,26 @@ import { postContentType, postType } from './types';
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Markup } from 'interweave';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
+import { currentUser, diegoUser, leslieUser } from '../../../../core/users';
 
 
 
 export function Post({post}: {post: postType}) {
     let [comments, setComments] = useState<string[]>(['test'])
+    let textarea = useRef<null | HTMLTextAreaElement>(null)
 
 
     function handleNewComment(e: FormEvent) {
         e.preventDefault()
-        setComments(prev => [...prev, 'new comment'])
+        let form = e.currentTarget as HTMLFormElement
+
+        if (textarea.current!.value !== '') {
+            let newComment = textarea.current!.value.slice()
+            setComments(prev => [...prev, newComment])
+        }
+
+        form.reset()
     }
     
     
@@ -43,12 +52,12 @@ export function Post({post}: {post: postType}) {
 
             <form className="commentForm" onSubmit={handleNewComment}>
                 <strong>Deixe seu feedback</strong>
-                <textarea placeholder="Deixe um comentário" /> 
+                <textarea placeholder="Deixe um comentário" ref={textarea} /> 
                 <footer className="submitComment"><button type="submit">Publicar</button></footer>
             </form>
 
             <div className="commentList">
-                {comments.map((comment, index) => <Comment key={index} />)}
+                {comments.map((comment, index) => <Comment comment={comment} author={leslieUser} key={index} />)}
             </div>
         </article>
     )

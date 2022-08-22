@@ -1,17 +1,19 @@
 import { ThumbsUp, Trash } from 'phosphor-react'
 import './style.css'
 import { Avatar } from './../../../utils/Avatar/index';
+import { avatarType } from './../../../utils/Avatar/types';
 
 
-export function Comment() {
+
+export function Comment({comment, author}: {comment: string, author: avatarType}) {
     return (
         <div className="comment">
-            <Avatar src="https://images.unsplash.com/profile-1453904936751-28af93873ed7?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff" hasBorder={false} />
+            <Avatar src={author.avatarUrl} hasBorder={false} />
             <div className="commentBox">
                 <div className="commentBoxContent">
                     <header>
                         <div className="authorAndTime">
-                            <strong>Leslie Alexander</strong>
+                            <strong>{author.name}</strong>
                             <time dateTime="2022-05-11 11:11:11" title="Onze de maio de 2022, às 11:11">
                                 Publicado há uma hora atrás
                             </time>
@@ -20,7 +22,7 @@ export function Comment() {
                             <Trash size={20} />
                         </button>
                     </header>
-                    <p>Muito bom Michael, parabéns!! 👏👏</p>
+                    <p>{comment}</p>
                 </div>
 
                 <footer className="commentLike">
