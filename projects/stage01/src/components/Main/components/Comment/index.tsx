@@ -2,13 +2,19 @@ import { ThumbsUp, Trash } from 'phosphor-react'
 import './style.css'
 import { Avatar } from './../../../utils/Avatar/index';
 import { avatarType } from './../../../utils/Avatar/types';
+import { useState } from 'react';
 
 
 
 export function Comment({comment, author, onDeleteComment}: {comment: string, author: avatarType, onDeleteComment: (comment: string) => void}) {
+    let [likes, setLikes] = useState<number>(1)
 
     function handleDeleteComment(commentToDelete: string) {
         onDeleteComment(commentToDelete)
+    }   
+
+    function handleLikeAddition() {
+        setLikes(prev => prev + 1)
     }   
     
     
@@ -32,9 +38,9 @@ export function Comment({comment, author, onDeleteComment}: {comment: string, au
                 </div>
 
                 <footer className="commentLike">
-                    <button>
+                    <button onClick={handleLikeAddition}>
                         <ThumbsUp />
-                        Aplaudir<span>20</span>
+                        Aplaudir<span>{likes}</span>
                     </button>
                 </footer>
             </div>
