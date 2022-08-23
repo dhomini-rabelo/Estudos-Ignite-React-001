@@ -5,7 +5,7 @@ import { postContentType, postType } from './types';
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Markup } from 'interweave';
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, FormEventHandler, InvalidEvent, useRef, useState } from 'react';
 import { currentUser, diegoUser, leslieUser } from '../../../../core/users';
 
 
@@ -19,10 +19,8 @@ export function Post({post}: {post: postType}) {
         e.preventDefault()
         let form = e.currentTarget as HTMLFormElement
 
-        if (textarea.current!.value !== '') {
-            let newComment = textarea.current!.value.slice()
-            setComments(prev => [...prev, newComment])
-        }
+        let newComment = textarea.current!.value.slice()
+        setComments(prev => [...prev, newComment])
 
         form.reset()
     }
@@ -57,7 +55,7 @@ export function Post({post}: {post: postType}) {
 
             <form className="commentForm" onSubmit={handleNewComment}>
                 <strong>Deixe seu feedback</strong>
-                <textarea placeholder="Deixe um comentário" ref={textarea} /> 
+                <textarea placeholder="Deixe um comentário" ref={textarea} required /> 
                 <footer className="submitComment"><button type="submit">Publicar</button></footer>
             </form>
 
