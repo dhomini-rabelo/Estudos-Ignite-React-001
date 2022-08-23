@@ -5,7 +5,13 @@ import { avatarType } from './../../../utils/Avatar/types';
 
 
 
-export function Comment({comment, author}: {comment: string, author: avatarType}) {
+export function Comment({comment, author, onDeleteComment}: {comment: string, author: avatarType, onDeleteComment: (comment: string) => void}) {
+
+    function handleDeleteComment(commentToDelete: string) {
+        onDeleteComment(commentToDelete)
+    }   
+    
+    
     return (
         <div className="comment">
             <Avatar src={author.avatarUrl} hasBorder={false} />
@@ -18,7 +24,7 @@ export function Comment({comment, author}: {comment: string, author: avatarType}
                                 Publicado há uma hora atrás
                             </time>
                         </div>
-                        <button title="Deletar seu comentário">
+                        <button title="Deletar seu comentário" onClick={() => handleDeleteComment(comment)}>
                             <Trash size={20} />
                         </button>
                     </header>

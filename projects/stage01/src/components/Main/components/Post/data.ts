@@ -1,11 +1,11 @@
-import { currentUser, diegoUser } from "../../../../core/users";
+import { currentUser, diegoUser, leslieUser } from "../../../../core/users";
 import { postType } from "./types";
 
 
 export let posts: postType[] = [
     {
         id: 1,
-        author: currentUser,
+        author: leslieUser,
         content: [
             {tag: 'p', text: 'Fala galeraa 👋'},
             {tag: 'p', text: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},

@@ -26,6 +26,11 @@ export function Post({post}: {post: postType}) {
 
         form.reset()
     }
+
+
+    function deleteComment(commentToDelete: string) {
+        setComments(prev => prev.filter((comment) => comment !== commentToDelete))
+    }
     
     
     return (
@@ -57,7 +62,7 @@ export function Post({post}: {post: postType}) {
             </form>
 
             <div className="commentList">
-                {comments.map((comment, index) => <Comment comment={comment} author={leslieUser} key={index} />)}
+                {comments.map((comment, index) => <Comment comment={comment} author={currentUser} key={index} onDeleteComment={deleteComment} />)}
             </div>
         </article>
     )
