@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { Header } from './components/Header'
 
 
 export function App() {
 
   return (
-    <h1 className="text-3xl font-bold underline bg-pRed-300">
-      Hello world!
-    </h1>
+    <div className="container mx-auto">
+      <Header />
+    </div>
   )
 }
 
