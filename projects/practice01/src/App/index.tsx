@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import logo from '../assets/images/logo.svg'
 import { Div } from './styles';
-import { InputTask } from '../components/Main/components/InputTask';
-import { Tasks } from '../components/Main/components/Tasks';
+import { InputTask } from '../components/InputTask';
+import { Tasks } from '../components/Tasks';
 
 
 export function App() {
