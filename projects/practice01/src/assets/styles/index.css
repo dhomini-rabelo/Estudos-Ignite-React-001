@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --pPurple-400: #8284FA;
+  --pPurple-800: #5E60CE;
+}
+
 * {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   padding: 0;
