@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Main } from '../components/Main/index';
 import logo from '../assets/images/logo.svg'
 import { Div } from './styles';
+import { InputTask } from '../components/Main/components/InputTask';
+import { Tasks } from '../components/Main/components/Tasks';
 
 
 export function App() {
@@ -13,7 +14,12 @@ export function App() {
             <img src={logo} alt="project-logo" className="mx-auto" />
         </Div.imageContainer>
       </header>
-      <Main />
+      <main>
+        <Div.mainContainer className="mx-auto">
+          <InputTask />
+          <Tasks />
+        </Div.mainContainer>
+      </main>
     </div>
   )
 }
