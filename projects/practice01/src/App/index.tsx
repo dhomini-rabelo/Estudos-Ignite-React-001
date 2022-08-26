@@ -16,6 +16,15 @@ export function App() {
     setTasks(prev => [...prev, {id: uuidv4(), text, checked: false}])
   }
 
+  function markTask(id: string) {
+    setTasks((prev) => {
+      let newTaskList = prev.slice()
+      let taskIndex = prev.findIndex(task => task.id === id)
+      newTaskList[taskIndex] = {...newTaskList[taskIndex], checked: !newTaskList[taskIndex].checked}
+      return newTaskList
+    })
+  }
+
   return (
     <div className="container mx-auto">
       <header>
@@ -26,7 +35,7 @@ export function App() {
       <main>
         <Div.mainContainer className="mx-auto">
           <InputTask addTask={addTask} />
-          <Tasks tasks={tasks} />
+          <Tasks tasks={tasks} markTask={markTask} />
         </Div.mainContainer>
       </main>
     </div>
