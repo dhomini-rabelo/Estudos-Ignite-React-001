@@ -14,11 +14,11 @@ export function Tasks({tasks}: {tasks: taskType[]}) {
             <header className="flex justify-between items-center">
                 <div>
                     <strong className="text-pBlue-400 mr-2">Tarefas</strong>
-                    <span className="text-pGray-200">0</span>
+                    <span className="text-pGray-200">{tasks.length}</span>
                 </div>
                 <div>
                     <strong className="text-pPurple-400 mr-2">Concluídas</strong>
-                    <span className="text-pGray-200">1/5</span>
+                    <span className="text-pGray-200">{tasks.filter(task => task.checked).length}/{tasks.length}</span>
                 </div>
             </header>
             <main className="mt-6">
@@ -32,7 +32,7 @@ export function Tasks({tasks}: {tasks: taskType[]}) {
                         <span className="text-pGray-300">Crie tarefas e organize seus itens a fazer</span>
                     </div>
                 ): (
-                    tasks.map(() => <Task />)
+                    tasks.map((task) => <Task task={task} key={task.id} />)
                 )}
             </main>
         </Div.container>

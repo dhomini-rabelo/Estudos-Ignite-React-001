@@ -10,6 +10,7 @@ export function InputTask({ addTask }: { addTask: (text: string) => void }) {
   function handleNewTask() {
     let newTaskText = input.current!.value.slice()
     addTask(newTaskText)
+    input.current!.value = ''
   }
 
   return (
