@@ -1,12 +1,13 @@
 import { Div } from "./styles";
 import { useState } from 'react';
 import { Task } from "./components/Task";
+import { taskType } from './../../types/tasks';
 
 
 
 
-export function Tasks() {
-    let [tasks, setTasks] = useState(['1'])
+export function Tasks({tasks}: {tasks: taskType[]}) {
+    
     
     return (
         <Div.container className="pt-16">

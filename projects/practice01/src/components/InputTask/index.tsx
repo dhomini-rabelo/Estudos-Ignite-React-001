@@ -1,19 +1,25 @@
 import { PlusCircle } from 'phosphor-react'
+import { useRef } from 'react'
 import { Div } from './styles'
 
 
 
-export function InputTask() {
+export function InputTask({ addTask }: { addTask: (text: string) => void }) {
+  let input = useRef<null | HTMLInputElement>(null)
 
-    return (
-      <Div.container className="flex justify-between items-stretch">
-        <input type="text" name="task" id="task" placeholder="Adicione uma tarefa" 
-          className="flex-1 p-4 bg-pGray-500 border-solid border-pGray-700 rounded-lg mr-2 placeholder-pGray-300 text-pGray-100" 
-        />
-        <button className="bg-pBlue-800 hover:bg-pBlue-400 p-4 text-pGray-100 text-sm rounded-lg"><span>Criar</span> <PlusCircle size={16} className="inline-block" /></button>
-        
-      </Div.container>
-    )
+  function handleNewTask() {
+    let newTaskText = input.current!.value.slice()
+    addTask(newTaskText)
   }
+
+  return (
+    <Div.container className="flex justify-between items-stretch">
+      <input type="text" name="task" id="task" placeholder="Adicione uma tarefa" ref={input}
+        className="flex-1 p-4 bg-pGray-500 border-solid border-pGray-700 rounded-lg mr-2 placeholder-pGray-300 text-pGray-100" 
+      />
+      <button onClick={handleNewTask} className="bg-pBlue-800 hover:bg-pBlue-400 p-4 text-pGray-100 text-sm rounded-lg"><span>Criar</span> <PlusCircle size={16} className="inline-block" /></button>
+    </Div.container>
+  )
+}
   
   
