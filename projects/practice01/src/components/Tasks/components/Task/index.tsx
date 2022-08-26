@@ -1,10 +1,14 @@
 import { CheckCircle, Circle, Trash } from "phosphor-react";
 import { taskType } from './../../../../types/tasks';
 
-export function Task({task, markTask}: {task: taskType, markTask: (id: string) => void}) {
+export function Task({task, markTask, deleteTask}: {task: taskType, markTask: (id: string) => void, deleteTask: (id: string) => void}) {
     
     function handleMarkTask(id: string) {
         markTask(id)
+    }
+    
+    function handleDeleteTask(id: string) {
+        deleteTask(id)
     }
 
 
@@ -16,7 +20,9 @@ export function Task({task, markTask}: {task: taskType, markTask: (id: string) =
                     : <Circle className="text-pBlue-400 hover:text-pBlue-800" size={24} />
             }</span>
             <span className="grow px-3">{task.text}</span>
-            <span className="cursor-pointer text-pGray-300 hover:text-pRed-300"><Trash size={24} /></span>
+            <span className="cursor-pointer text-pGray-300 hover:text-pRed-300" onClick={() => handleDeleteTask(task.id)}>
+                <Trash size={24} />
+            </span>
         </div>
     )
 }

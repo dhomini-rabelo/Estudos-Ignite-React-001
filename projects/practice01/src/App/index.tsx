@@ -24,6 +24,10 @@ export function App() {
       return newTaskList
     })
   }
+  
+  function deleteTask(id: string) {
+    setTasks((prev) => prev.filter(task => task.id !== id))
+  }
 
   return (
     <div className="container mx-auto">
@@ -35,7 +39,7 @@ export function App() {
       <main>
         <Div.mainContainer className="mx-auto">
           <InputTask addTask={addTask} />
-          <Tasks tasks={tasks} markTask={markTask} />
+          <Tasks tasks={tasks} markTask={markTask} deleteTask={deleteTask} />
         </Div.mainContainer>
       </main>
     </div>

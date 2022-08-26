@@ -6,7 +6,7 @@ import { taskType } from './../../types/tasks';
 
 
 
-export function Tasks({tasks, markTask}: {tasks: taskType[], markTask: (id: string) => void}) {
+export function Tasks({tasks, markTask, deleteTask}: {tasks: taskType[], markTask: (id: string) => void, deleteTask: (id: string) => void}) {
     
     
     return (
@@ -32,7 +32,7 @@ export function Tasks({tasks, markTask}: {tasks: taskType[], markTask: (id: stri
                         <span className="text-pGray-300">Crie tarefas e organize seus itens a fazer</span>
                     </div>
                 ): (
-                    tasks.map((task) => <Task task={task} key={task.id} markTask={markTask} />)
+                    tasks.map((task) => <Task task={task} key={task.id} markTask={markTask} deleteTask={deleteTask} />)
                 )}
             </main>
         </Div.container>
