@@ -2,12 +2,11 @@ import { Div } from "./styles";
 import { useState } from 'react';
 import { Task } from "./components/Task";
 import { taskType } from './../../types/tasks';
-import MyModal from "./components/EditTaskModal";
 
 
 
 
-export function Tasks({tasks, markTask, deleteTask}: {tasks: taskType[], markTask: (id: string) => void, deleteTask: (id: string) => void}) {
+export function Tasks({tasks, markTask, deleteTask, editTaskText}: {tasks: taskType[], markTask: (id: string) => void, deleteTask: (id: string) => void, editTaskText: (id: string, text: string) => void}) {
     
     
     return (
@@ -20,7 +19,6 @@ export function Tasks({tasks, markTask, deleteTask}: {tasks: taskType[], markTas
                 <div>
                     <strong className="text-pPurple-400 mr-2">Concluídas</strong>
                     <span className="text-pGray-200">{tasks.filter(task => task.checked).length}/{tasks.length}</span>
-                    <MyModal />
                 </div>
             </header>
             <main className="mt-6">
@@ -34,7 +32,7 @@ export function Tasks({tasks, markTask, deleteTask}: {tasks: taskType[], markTas
                         <span className="text-pGray-300">Crie tarefas e organize seus itens a fazer</span>
                     </div>
                 ): (
-                    tasks.map((task) => <Task task={task} key={task.id} markTask={markTask} deleteTask={deleteTask} />)
+                    tasks.map((task) => <Task task={task} key={task.id} markTask={markTask} deleteTask={deleteTask} editTaskText={editTaskText} />)
                 )}
             </main>
         </Div.container>

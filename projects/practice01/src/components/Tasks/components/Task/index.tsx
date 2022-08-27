@@ -1,7 +1,8 @@
 import { CheckCircle, Circle, Trash } from "phosphor-react";
+import { EditTaskModal } from "../EditTaskModal";
 import { taskType } from './../../../../types/tasks';
 
-export function Task({task, markTask, deleteTask}: {task: taskType, markTask: (id: string) => void, deleteTask: (id: string) => void}) {
+export function Task({task, markTask, deleteTask, editTaskText}: {task: taskType, markTask: (id: string) => void, deleteTask: (id: string) => void, editTaskText: (id: string, text: string) => void}) {
     
     function handleMarkTask(id: string) {
         markTask(id)
@@ -19,7 +20,7 @@ export function Task({task, markTask, deleteTask}: {task: taskType, markTask: (i
                     <CheckCircle weight="fill" size={24} className="text-pPurple-800 hover:text-pPurple-400" /> 
                     : <Circle className="text-pBlue-400 hover:text-pBlue-800" size={24} />
             }</span>
-            <span className="grow px-3">{task.text}</span>
+            <EditTaskModal id={task.id} text={task.text} editTask={editTaskText} />
             <span className="cursor-pointer text-pGray-300 hover:text-pRed-300" onClick={() => handleDeleteTask(task.id)}>
                 <Trash size={24} />
             </span>

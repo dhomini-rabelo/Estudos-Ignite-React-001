@@ -1,13 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { X } from 'phosphor-react'
-import { Fragment, useState } from 'react'
+import { ChangeEvent, Fragment, KeyboardEvent, useState } from 'react'
 import { Div } from './styles'
 
 
 
 
-export default function MyModal() {
-  let [isOpen, setIsOpen] = useState<boolean>(true)
+export function EditTaskModal({ text, id, editTask }: {text: string, id: string, editTask: (id: string, text: string) => void}) {
+  let [isOpen, setIsOpen] = useState<boolean>(false)
+  let [newTaskText, setNewTaskText] = useState<string>(text)
 
   function closeModal() {
     setIsOpen(false)
@@ -16,18 +17,19 @@ export default function MyModal() {
   function openModal() {
     setIsOpen(true)
   }
+  
+  function handleEditTask() {
+    editTask(id, newTaskText)
+    closeModal()
+  }
+
+  function handleEditTaskByKeyboard(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {handleEditTask()}
+  }
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center">
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          Open dialog
-        </button>
-      </div>
+      <span onClick={openModal} className="grow px-3 cursor-pointer">{text}</span>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -65,16 +67,16 @@ export default function MyModal() {
                     </div>
                   </Dialog.Title>
                   <Div.inputContainer className="mt-6 w-full">
-                  <input type="text" name="task" id="task" placeholder="Adicione uma tarefa"
+                  <input type="text" name="task" id="task" placeholder="Altere o texto de uma tarefa" value={newTaskText} onChange={(e: ChangeEvent<HTMLInputElement>) => setNewTaskText(e.currentTarget.value)} required
+                        onKeyDown={handleEditTaskByKeyboard}
                         className="w-full p-4 bg-pGray-500 border-solid border-pGray-700 rounded-lg mr-2 placeholder-pGray-300 text-pGray-100" 
                     />
                   </Div.inputContainer>
 
                   <div className="mt-6">
                     <button
-                      type="button"
+                      type="submit" onClick={handleEditTask}
                       className="w-full text-pGray-100 rounded-md border border-transparent bg-pPurple-800 px-4 py-3 text-sm font-medium hover:bg-pPurple-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
                     >
                       Editar
                     </button>
