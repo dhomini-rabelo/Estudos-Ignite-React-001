@@ -19,8 +19,10 @@ export function EditTaskModal({ text, id, editTask }: {text: string, id: string,
   }
   
   function handleEditTask() {
-    editTask(id, newTaskText)
-    closeModal()
+    if (newTaskText) {
+      editTask(id, newTaskText.slice().trim())
+      closeModal()
+    }
   }
 
   function handleEditTaskByKeyboard(e: KeyboardEvent<HTMLInputElement>) {

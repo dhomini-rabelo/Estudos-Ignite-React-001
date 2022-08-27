@@ -8,8 +8,10 @@ export function InputTask({ addTask }: { addTask: (text: string) => void }) {
   let input = useRef<null | HTMLInputElement>(null)
 
   function handleNewTask() {
-    let newTaskText = input.current!.value.slice()
-    addTask(newTaskText)
+    let newTaskText = input.current!.value.slice().trim()
+    if (newTaskText) {
+      addTask(newTaskText)
+    }
     input.current!.value = ''
     input.current!.focus()
   }
