@@ -2,6 +2,7 @@ import { Div } from "./styles";
 import { useState } from 'react';
 import { Task } from "./components/Task";
 import { taskType } from './../../types/tasks';
+import MyModal from "./components/EditTaskModal";
 
 
 
@@ -19,6 +20,7 @@ export function Tasks({tasks, markTask, deleteTask}: {tasks: taskType[], markTas
                 <div>
                     <strong className="text-pPurple-400 mr-2">Concluídas</strong>
                     <span className="text-pGray-200">{tasks.filter(task => task.checked).length}/{tasks.length}</span>
+                    <MyModal />
                 </div>
             </header>
             <main className="mt-6">
