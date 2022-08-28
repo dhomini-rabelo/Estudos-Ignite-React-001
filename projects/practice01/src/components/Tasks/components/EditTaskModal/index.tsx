@@ -6,7 +6,7 @@ import { Div } from './styles'
 
 
 
-export function EditTaskModal({ text, id, editTask }: {text: string, id: string, editTask: (id: string, text: string) => void}) {
+export function EditTaskModal({ text, id, editTask, checked }: {text: string, id: string, editTask: (id: string, text: string) => void, checked: boolean}) {
   let [isOpen, setIsOpen] = useState<boolean>(false)
   let [newTaskText, setNewTaskText] = useState<string>(text)
 
@@ -31,7 +31,13 @@ export function EditTaskModal({ text, id, editTask }: {text: string, id: string,
 
   return (
     <>
-      <span onClick={openModal} className="grow px-3 cursor-pointer">{text}</span>
+      {
+        checked ? (
+          <span className="grow px-3 text-pGray-300 line-through">{text}</span>
+          ): (
+          <span onClick={openModal} className="grow px-3 cursor-pointer">{text}</span>
+        )
+      }
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>

@@ -20,7 +20,7 @@ export function Task({task, markTask, deleteTask, editTaskText}: {task: taskType
                     <CheckCircle weight="fill" size={24} className="text-pPurple-800 hover:text-pPurple-400" /> 
                     : <Circle className="text-pBlue-400 hover:text-pBlue-800" size={24} />
             }</span>
-            <EditTaskModal id={task.id} text={task.text} editTask={editTaskText} />
+            <EditTaskModal id={task.id} text={task.text} editTask={editTaskText} checked={task.checked} />
             <span className="cursor-pointer text-pGray-300 hover:text-pRed-300" onClick={() => handleDeleteTask(task.id)}>
                 <Trash size={24} />
             </span>
