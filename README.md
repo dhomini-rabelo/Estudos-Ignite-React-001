@@ -1,5 +1,4 @@
 <h1>Estudos Ignite(React) - Etapa 01</h1>
-<hr>
 <!-- <h3>Tópicos</h3> -->
 
 <!-- <ul>
@@ -12,7 +11,6 @@
 <br>
 
 <h2 id="course">Projeto feito durante as aulas</h2>
-<hr>
 <p>caminho: "/projects/stage01"</p>
 
 <br>
@@ -24,7 +22,6 @@
     iteração no com tsx, imutabilidade, typescript, entre outros.
 </p>
 
-<br>
 
 <h3>🚀 Tecnologias</h3>
 <ul>
@@ -48,7 +45,6 @@
 <br>
 
 <h2 id="individual-course">Projeto do curso feito individualmente</h2>
-<hr>
 <p>caminho: "/projects/practice01"</p>
 
 <br>
@@ -56,10 +52,10 @@
 
 
 <p>
-    A Rocketseat disponibiliza as instruções para realizarmos individualmente este projeto, com objetivo de colocamos em prática o que foi aprendido no primeiro projeto do curso
+    A Rocketseat disponibiliza as instruções para realizarmos individualmente este projeto, com objetivo de colocarmos em prática o que foi aprendido no primeiro projeto do curso.
 </p>
 
-<br>
+
 
 <h3>🚀 Tecnologias</h3>
 <ul>
@@ -73,7 +69,7 @@
 
 <h3>≠ Diferenças do desafio original proposto</h3>
 <ul>
-    <li>Criei um modal para editar a task, utilizando headlessui</li>
+    <li>Criei um modal para editar tasks, utilizando headlessui</li>
     <li>Algumas diferenças em estilização</li>
 </ul>
 
