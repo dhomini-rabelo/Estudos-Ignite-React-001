@@ -13,6 +13,7 @@ import { currentUser, diegoUser, leslieUser } from '../../../../core/users';
 export function Post({post}: {post: postType}) {
     let [comments, setComments] = useState<string[]>(['test'])
     let textarea = useRef<null | HTMLTextAreaElement>(null)
+    let submitButton = useRef<null | HTMLButtonElement>(null)
 
 
     function handleNewComment(e: FormEvent) {
@@ -23,6 +24,7 @@ export function Post({post}: {post: postType}) {
         setComments(prev => [...prev, newComment])
 
         form.reset()
+        submitButton.current!.blur()
     }
 
 
@@ -56,7 +58,7 @@ export function Post({post}: {post: postType}) {
             <form className="commentForm" onSubmit={handleNewComment}>
                 <strong>Deixe seu feedback</strong>
                 <textarea placeholder="Deixe um comentário" ref={textarea} required /> 
-                <footer className="submitComment"><button type="submit">Publicar</button></footer>
+                <footer className="submitComment"><button type="submit" ref={submitButton}>Publicar</button></footer>
             </form>
 
             <div className="commentList">
