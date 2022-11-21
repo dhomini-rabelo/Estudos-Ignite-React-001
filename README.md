@@ -34,7 +34,7 @@
     <li>Usei desde o início o typescript</li>
     <li>Algumas mudanças em estilos, código, entre outros</li>
     <li>Organização de pastas</li>
-    <li>Usei o useRef ao invés de useState para pegar o valor da text área</li>
+    <li>Usei o useRef ao invés de useState para pegar o valor da textarea</li>
     <li>Etc...</li>
 </ul>
 
