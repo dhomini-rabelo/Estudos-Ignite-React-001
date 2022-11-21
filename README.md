@@ -18,8 +18,8 @@
 
 
 <p>
-    Neste projetos estudamos conceitos básicos de React, como de propriedades e estado, além programação declarativa,
-    iteração no com tsx, imutabilidade, typescript, entre outros.
+    Neste projetos estudamos conceitos básicos do React, como propriedades e estado, além de programação declarativa,
+    iteração com tsx, imutabilidade, Typescript, entre outros.
 </p>
 
 
